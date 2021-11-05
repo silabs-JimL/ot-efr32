@@ -28,7 +28,6 @@
 
 set(SILABS_GSDK_INCLUDES
     ${SILABS_GSDK_DIR}
-    ${SILABS_GSDK_DIR}/hardware/kit/${PLATFORM_UPPERCASE}_${BOARD_UPPERCASE}/config
     ${SILABS_GSDK_DIR}/hardware/kit/common/bsp
     ${SILABS_GSDK_DIR}/hardware/kit/common/drivers
     ${SILABS_GSDK_DIR}/platform/base/hal/micro/cortexm3/efm32
@@ -59,6 +58,14 @@ set(SILABS_GSDK_INCLUDES
     ${SILABS_GSDK_DIR}/platform/service/sleeptimer/inc
     ${SILABS_GSDK_DIR}/util/plugin/plugin-common/fem-control
 )
+
+if(NOT (BOARD_LOWERCASE STREQUAL "brd4199a"))
+set(SILABS_GSDK_INCLUDES
+    ${SILABS_GSDK_INCLUDES}
+    ${SILABS_GSDK_DIR}/hardware/kit/${PLATFORM_UPPERCASE}_${BOARD_UPPERCASE}/config
+)
+endif()
+
 
 file(GLOB gsdk_board_config_dir "${SILABS_GSDK_DIR}/hardware/board/config/*${BOARD_LOWERCASE}*")
 list(APPEND SILABS_GSDK_INCLUDES ${gsdk_board_config_dir})

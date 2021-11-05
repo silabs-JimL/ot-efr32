@@ -33,6 +33,8 @@ if(BOARD_LOWERCASE STREQUAL "brd4180a")
     set(MCU "EFR32MG21A020F1024IM32")
 elseif(BOARD_LOWERCASE STREQUAL "brd4180b")
     set(MCU "EFR32MG21A020F1024IM32")
+elseif(BOARD_LOWERCASE STREQUAL "brd4199a")
+    set(MCU "EFR32MG21B020F1024IM32")    
 else()
     message(FATAL_ERROR "
     BOARD=${BOARD} not supported.
@@ -41,6 +43,7 @@ else()
     Currently supported:
     - brd4180a
     - brd4180b
+    - brd4199a
     ")
 endif()
 
